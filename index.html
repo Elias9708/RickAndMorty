@@ -24,10 +24,11 @@
   <div id="app">
     <button @click="getUsers" class="obt-us">Tarjetas</button>
     <button @click="compraCreditos">Comprar Rickpoints</button>
-    <h2>bienvenido <h2 v-text="userlogueado.nickname"></h2></h2>
-    <div v-text="dinero">
+     <h2>bienvenido <h2 v-text="userlogueado.nickname"></h2></h2>
+     <div v-text="dinero">
       {{dinero}}
     </div>
+    
     <div>
       <select v-model="gender" class="personalizacion">
         <option value="">Todos</option>

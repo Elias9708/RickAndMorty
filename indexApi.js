@@ -9,11 +9,33 @@ var app = new Vue({
     ofertaActual: 50, //pujamaxi
     oferta: 0,
     showDiv: false,
-    moneyInitial: 0,
+    money: 500,
     dinero: localStorage.getItem("moneys"),
     buy: [],
     resultado: "",
-    selectPoints: "",
+    selectPoints:[{
+      pints: 200,
+      valor: 15000,
+      id:0,
+      
+  },{
+      pints: 500,
+      valor: 25000,
+      id:1
+      
+  },{
+      pints: 800,
+      valor: 50000,
+      id:2
+      
+  },{
+      pints: 1000,
+      valor: 80000,
+      id:3
+      
+  },
+  ],
+  selectedPoint:undefined,
     date: "",
     selectValue: "",
     NumeroCuenta: "",
@@ -24,17 +46,17 @@ var app = new Vue({
     plan1: 15000,
     userlogueado: JSON.parse(localStorage.getItem("UsuarioLogueado")),
     InputUser: null,
-        InputPassword: null,
-        user: [],
-        InputName: null,
-        InputEmail: null,
-        InputPhone: null,
-        InputNameUser: null,
-        InputPasswordUser: null,
-        errorRegistry: false,
-        users: [],
-        pass: [],
-        userlogin: null,
+    InputPassword: null,
+    user: [],
+    InputName: null,
+    InputEmail: null,
+    InputPhone: null,
+    InputNameUser: null,
+    InputPasswordUser: null,
+    errorRegistry: false,
+    users: [],
+    pass: [],
+    userlogin: null,
   },
   methods: {
     // loadCharacters(url) {
@@ -138,68 +160,69 @@ var app = new Vue({
       this.showDiv = false;
     },
 
-
     registrar() {
-      if (this.InputName != null && this.InputEmail != null && this.InputPhone != null && this.InputNameUser != null
-          && this.InputPasswordUser != null) {
-          console.log("entro");
-          this.user = JSON.parse(localStorage.getItem("EntradaUsuarios")) || [];
-          this.user.push({
-              name: this.InputName,
-              email: this.InputEmail,
-              phone: this.InputPhone,
-              nickname: this.InputNameUser,
-              password: this.InputPasswordUser
-          })
-          localStorage.setItem("EntradaUsuarios", JSON.stringify(this.user));
+      if (
+        this.InputName != null &&
+        this.InputEmail != null &&
+        this.InputPhone != null &&
+        this.InputNameUser != null &&
+        this.InputPasswordUser != null
+      ) {
+        console.log("entro");
+        this.user = JSON.parse(localStorage.getItem("EntradaUsuarios")) || [];
+        this.user.push({
+          name: this.InputName,
+          email: this.InputEmail,
+          phone: this.InputPhone,
+          nickname: this.InputNameUser,
+          password: this.InputPasswordUser,
+        });
+        localStorage.setItem("EntradaUsuarios", JSON.stringify(this.user));
       } else {
-          this.errorRegistry = true;
+        this.errorRegistry = true;
       }
 
       window.location.reload();
-  },
+    },
 
-  validarUsuario() {
-      if (this.InputUser && this.InputPassword) { // verificar si los campos no son nulos ni indefinidos
-          this.user = JSON.parse(localStorage.getItem("EntradaUsuarios"));
-          this.users = this.user.find(u => u.nickname === this.InputUser && u.password === this.InputPassword);
-  
-          if (this.users) { // verificar si se encontró un usuario válido
-              this.userlogin = this.users; // establecer el usuario actual
-              localStorage.setItem("UsuarioLogueado", JSON.stringify(this.userlogin));
-              setTimeout(() => {
-                  window.location = "index.html";
-              }, 100);
-              console.log(this.userlogin);
-          }
+    validarUsuario() {
+      if (this.InputUser && this.InputPassword) {
+        // verificar si los campos no son nulos ni indefinidos
+        this.user = JSON.parse(localStorage.getItem("EntradaUsuarios"));
+        this.users = this.user.find(
+          (u) =>
+            u.nickname === this.InputUser && u.password === this.InputPassword
+        );
+
+        if (this.users) {
+          // verificar si se encontró un usuario válido
+          this.userlogin = this.users; // establecer el usuario actual
+          localStorage.setItem(
+            "UsuarioLogueado",
+            JSON.stringify(this.userlogin)
+          );
+          setTimeout(() => {
+            window.location = "index.html";
+          }, 100);
+          console.log(this.userlogin);
+        }
       }
-  },
+    },
 
-
-  compraCreditos(){
+    compraCreditos() {
       setTimeout(() => {
-          window.location = "creditos.html";
+        window.location = "creditos.html";
       }, 100);
+    },
 
+    CompraRickPoints() {
+      this.selectPoints; //numero de points
+      this.selectValue; // metodo de pago
+
+      if (this.NumeroCuenta != null && this.valorPago != null) {
+      }
+    },
   },
-
-  CompraRickPoints(){
-    this.selectPoints //numero de points
-    this.selectValue // metodo de pago
-
-    if(this.NumeroCuenta != null && this.valorPago != null){
-
-
-    }
-    
-   
-
-
-
-  }
-
-  },
-  
 
   created() {},
 });

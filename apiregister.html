@@ -4,6 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Enlace a Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        /* Estilos CSS para centrar el contenido */
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            
+
+            
+        }
+       
+        
+        input {
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        
+        <h1>REGISTRO</h1>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ingresa tu nombre" v-model="InputName">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ingresa tu correo" v-model="InputEmail">
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" placeholder="Ingresa tu telefono" v-model="InputPhone">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Ingresa tu usuario" v-model="InputNameUser">
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Ingresa tu contraseña" v-model="InputPasswordUser">
+        </div>
+        <a href="./apilogin.html">Iniciar sesión</a>
+        <button @click="registrar" class="btn btn-primary">REGISTRAR</button>
+        <div v-if="errorRegistry">
+            <p>*Los campos deben estar completamente llenos</p>
+        </div>
+    
+</div>
+    <!-- Enlaces a los scripts de Bootstrap y Vue -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="api.js"></script>
+    
+</body>
+
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
@@ -24,4 +91,4 @@
     <script src="api.js"></script>
 </body>
 
-</html>
+</html> -->

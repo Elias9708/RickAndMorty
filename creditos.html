@@ -7,14 +7,60 @@
     <title>Document</title>
 </head>
 <body>
+    <div id="app">
     <h1>COMPRA CREDITOS</h1>
-    <button id="plan1">200 RICKCOINS <br> $15.000</button>
-    <button id="plan1">500 RICKCOINS <br> $25.000</button>
+    <select v-model="selectPoints"  id="selectMetodo">
+        <option value="200">200 RICKCOINS <br> $15.000</option>
+        <option value="500">500 RICKCOINS <br> $25.000</option>
+        <option value="800">800 RICKCOINS <br> $50.000</option>
+        <option value="1000">1000 RICKCOINS <br> $80.000</option>
+    </select>
+    
+    <!-- <button id="plan1">500 RICKCOINS <br> $25.000</button>
     <button id="plan1">800 RICKCOINS <br> $50.000</button>
-    <button id="plan1">1000 RICKCOINS <br> $80.000</button>
+    <button id="plan1">1000 RICKCOINS <br> $80.000</button> -->
 
+    <div v-if="selectPoints === '200' || selectPoints === '500' || selectPoints === '800' || selectPoints === '1000' ">
+        <h1>METODO DE PAGO</h1>
+        <label for="selectMetodo">Metodos de pago disponibles</label>
+        <select v-model="selectValue"  id="selectMetodo">
+            <option value="nequi">nequi</option>
+            <option value="pse">pse</option>
+            <option value="bancolombia">bancolombia</option>
+            <option value="daviplata">daviplata</option>
+        </select>
+
+    </div>
+    <div class="progress" v-show="selectValue==='nequi'">
+        <h1>aqui nequi</h1>
+        <input type="number" placeholder="numero de cuenta o telefono celular" v-model="NumeroCuenta">
+        <input type="number" placeholder="ingrese valor a pagar" v-model="valorPago">
+        
+        <button  @click="CompraRickPoints">Comprar</button>
+      </div>
+      <div class="progress" v-show="selectValue==='pse'">
+        <h1>aqui pse</h1>
+        <input type="number" placeholder="numero de cuenta o telefono celular" v-model="NumeroCuenta" >
+        <input type="number" placeholder="ingrese valor a pagar"  v-model="valorPago">
+        <button  @click="CompraRickPoints">Comprar</button>
+      </div>
+      <div class="progress" v-show="selectValue==='bancolombia'">
+        <h1>aqui bancolombia</h1>
+        <input type="number" placeholder="numero de cuenta o telefono celular" v-model="NumeroCuenta" >
+        <input type="number" placeholder="ingrese valor a pagar" v-model="valorPago">
+        <button  @click="CompraRickPoints">Comprar</button>
+      </div>
+      <div class="progress" v-show="selectValue==='daviplata'">
+        <h1>aqui daviplata</h1>
+        <input type="number" placeholder="numero de cuenta o telefono celular" v-model="NumeroCuenta">
+        <input type="number" placeholder="ingrese valor a pagar" v-model="valorPago">
+        <button  @click="CompraRickPoints">Comprar</button>
+      </div>
+
+      
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="api.js"></script>
+    <script src="indexApi.js"></script>
 </body>
 </html>

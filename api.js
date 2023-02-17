@@ -43,6 +43,7 @@ const app = new Vue({
         
                 if (this.users) { // verificar si se encontró un usuario válido
                     this.userlogin = this.users; // establecer el usuario actual
+                    localStorage.setItem("UsuarioLogueado", JSON.stringify(this.userlogin));
                     setTimeout(() => {
                         window.location = "index.html";
                     }, 1000);

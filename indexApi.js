@@ -14,6 +14,7 @@ var app = new Vue({
     buy: [],
     resultado: "",
     date: "",
+    user: JSON.parse(localStorage.getItem("EntradaUsuarios")),
   },
   methods: {
     // loadCharacters(url) {

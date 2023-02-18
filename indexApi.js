@@ -202,7 +202,7 @@ var app = new Vue({
             JSON.stringify(this.userlogin)
           );
           setTimeout(() => {
-            window.location = "index.html";
+            window.location = "tarjetas.html";
           }, 100);
           console.log(this.userlogin);
         }

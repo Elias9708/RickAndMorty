@@ -98,18 +98,19 @@ var app = new Vue({
       this.subastando = true;
       this.selectedCharacter = character;
       this.ofertaActual =
-        this.ofertaActual + (Math.floor(Math.random() * 20) + 10);
+      this.ofertaActual + (Math.floor(Math.random() * 20) + 10);
       this.oferta = this.ofertaActual + 10;
       this.showDiv = true;
     },
 
     realizarOferta() {
+           
       if (
         this.oferta == this.ofertaActual + 10 &&
         this.oferta < this.ofertaActual + 20
       ) {
         swal(
-          "opps",
+          "Oops",
           "la oferta a cambiado ahora tiene un valor de: " +
             (this.ofertaActual + 20),
           "error"
@@ -120,6 +121,10 @@ var app = new Vue({
           "la oferta debe ser mayor a " + (this.ofertaActual + 10),
           "error"
         );
+      }else if (this.dinero <= this
+        .ofertaActual) {
+          swal("Oops","Tiene dinero insuficiente, por favor recarga RickPoins","error")
+
       } else {
         Swal.fire({
           title: "Tu ofertas es de: " + this.oferta,

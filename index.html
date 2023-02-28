@@ -10,46 +10,24 @@
 
     <title>Document</title>
 
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            flex-direction: column;
-        }
-
-        #app {
-            width: 400px;
-            margin: 0 auto;
-        }
-
-        #inputUsuario, #inputPassword {
-            margin-bottom: 10px;
-        }
-
-        a {
-            display: block;
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/index.css">
 </head>
 <body>
     <div id="app">
         <h1 class="text-center">LOGIN</h1>
         <div class="form-group">
-            <input type="text" placeholder="Ingresa tu usuario" id="inputUsuario" v-model="InputUser" class="form-control">
+            <input type="text" placeholder="Ingresa tu usuario" id="inputUsuario" v-model="InputUser" class="form-control" required>
         </div>
         <div class="form-group">
-            <input type="password" placeholder="Ingresa tu contraseña" id="inputPassword" v-model="InputPassword" class="form-control">
+            <input type="password" placeholder="Ingresa tu contraseña" id="inputPassword" v-model="InputPassword" class="form-control" required>
         </div>
-        <a href="./apiregister.html">Registro</a>
+        <a href="/pages/apiregister.html">Registro</a>
         <button @click="validarUsuario" class="btn btn-primary btn-block">Ingresar</button>
     </div>
 
     <!-- Enlaces a los archivos JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="indexApi.js"></script>
+    <script src="/js/indexApi.js"></script>
 
     <!-- Enlace a Bootstrap JS -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -57,28 +35,3 @@
 </html>
 
 
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="app">
-        <input type="text" placeholder="Ingresa tu usuario" id="inputUsuario" v-model="InputUser">
-        <input type="password" placeholder="Ingresa tu contraseña" id="inputPassword" v-model="InputPassword">
-        <a href="./apiregister.html">Registro</a>
-        <button @click="validarUsuario">Ingresar</button>
-
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-    <script src="api.js"></script>
-</body>
-</html> -->
